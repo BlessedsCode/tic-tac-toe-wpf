@@ -1,0 +1,49 @@
+<Window x:Class="TicTacToeWpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Крестики-нолики — Короткий Никита, РПО-5"
+        Width="440" Height="570" MinWidth="380" MinHeight="520"
+        Background="#EEF2F7" WindowStartupLocation="CenterScreen"
+        FontFamily="Segoe UI">
+    <Window.Resources>
+        <Style x:Key="SquareStyle" TargetType="Button">
+            <Setter Property="FontSize" Value="44" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="Background" Value="White" />
+            <Setter Property="Foreground" Value="#285D9F" />
+            <Setter Property="BorderBrush" Value="#CCD7E5" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Margin" Value="4" />
+            <Setter Property="Cursor" Value="Hand" />
+        </Style>
+    </Window.Resources>
+    <Grid Margin="24">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <TextBlock Text="Крестики-нолики" FontSize="27" FontWeight="SemiBold"
+                   Foreground="#243D5D" HorizontalAlignment="Center" />
+        <TextBlock x:Name="TurnLabel" Grid.Row="1" Text="Сейчас ходит X"
+                   FontSize="18" Margin="0,14,0,14" TextAlignment="Center" Foreground="#36587F" />
+        <UniformGrid x:Name="PlayField" Grid.Row="2" Rows="3" Columns="3" MaxHeight="330" MaxWidth="360">
+            <Button Tag="0" Click="SquarePressed" Style="{StaticResource SquareStyle}" />
+            <Button Tag="1" Click="SquarePressed" Style="{StaticResource SquareStyle}" />
+            <Button Tag="2" Click="SquarePressed" Style="{StaticResource SquareStyle}" />
+            <Button Tag="3" Click="SquarePressed" Style="{StaticResource SquareStyle}" />
+            <Button Tag="4" Click="SquarePressed" Style="{StaticResource SquareStyle}" />
+            <Button Tag="5" Click="SquarePressed" Style="{StaticResource SquareStyle}" />
+            <Button Tag="6" Click="SquarePressed" Style="{StaticResource SquareStyle}" />
+            <Button Tag="7" Click="SquarePressed" Style="{StaticResource SquareStyle}" />
+            <Button Tag="8" Click="SquarePressed" Style="{StaticResource SquareStyle}" />
+        </UniformGrid>
+        <Button Grid.Row="3" Content="Новая игра" Click="RestartPressed" Height="40"
+                Margin="4,16,4,0" FontSize="15" Background="#285D9F" Foreground="White"
+                BorderThickness="0" Cursor="Hand" />
+        <TextBlock Grid.Row="4" Text="Короткий Никита · РПО-5" FontSize="12"
+                   Foreground="#65778F" TextAlignment="Center" Margin="0,16,0,0" />
+    </Grid>
+</Window>
